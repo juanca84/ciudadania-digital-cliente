@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>Login Exitoso</title>
+    <link rel="stylesheet" type="text/css" href="/../styles/style.css">
+
+</head>
+
+<body>
+    <div>
+        <div>
+            <h2>Loading...</h2>
+        </div>
+    </div>
+</body>
+<script>
+
+    // solo para el popup, en otros casos directamente una redireccion
+    if (window.opener && window.opener !== window) {
+        window.opener.location.replace('/home');
+        var padre = window.self;
+        padre.opener = window.self;
+        padre.close();
+    } else {
+        window.location.href = '/home';
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <title>Successful authentication</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+</head>
+
+<body>
+    <div class="content">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</body>
+<script>
+
+
+    if (window.opener && window.opener !== window) {
+        //window.top.location.replace('/home');
+        window.opener.location.replace('/home');
+
+        var daddy = window.self;
+        daddy.opener = window.self;
+        daddy.close();
+    } else {
+        window.location.href = '/home';
+    }
+
+</script>
+
+</html>
