@@ -3,14 +3,14 @@ const { ensureLoggedIn } = require('connect-ensure-login');
 
 module.exports = (client, passport) => {
   // auth login
-  router.get('/login', (req, res, next) => {
+  router.get('/auth/login', (req, res, next) => {
     passport.authenticate('oidc', {
       // scope: ['openid nombre documento_identidad fecha_nacimiento email celular'],
       scope: ['openid profile'],
     })(req, res, next);
   });
 
-  router.get('/login/callback', (req, res, next) => {
+  router.get('/api/ciudadania-callback', (req, res, next) => {
     passport.authenticate('oidc', {
       // En este caso solo por el tema del popup se tiene esta vista close_ventana
       // si fuera solo el caso de redireccion bastaria poner un:
@@ -20,7 +20,7 @@ module.exports = (client, passport) => {
     })(req, res, next);
   });
 
-  router.get('/close_ventana', (req, res) => {
+  router.get('/auth/close_ventana', (req, res) => {
     res.render('loginRedirect');
   });
 

@@ -101,7 +101,7 @@ Issuer.discover(clientOidcUrl)
     // ========> ROUTES
 
     app.use('/', homeRoute(criiptoIssuer));
-    app.use('/auth', authRoute(client, passport));
+    app.use('/', authRoute(client, passport));
 
 
     // =========> BOOTSTRAP
